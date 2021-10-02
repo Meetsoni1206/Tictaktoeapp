@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import com.soni.tictaktoeapp.R.color.*
 
 class MainActivity : AppCompatActivity() {
@@ -56,5 +57,60 @@ class MainActivity : AppCompatActivity() {
             activeplayer = 1
         }
         idselected.isEnabled = false
+
+        checkwinner()
+    }
+
+    fun checkwinner(){
+
+        var winer = -1
+        //row 1
+        if(player1.contains(1)&& player1.contains(2) && player1.contains(3)){
+            winer = 1
+        }
+        if(player2.contains(1)&& player2.contains(2) && player2.contains(3)){
+            winer = 2
+        }
+        //row 2
+        if(player1.contains(4)&& player1.contains(5) && player1.contains(6)){
+            winer = 1
+        }
+        if(player2.contains(4)&& player2.contains(5) && player2.contains(6)){
+            winer = 2
+        }
+        //row 3
+        if(player1.contains(7)&& player1.contains(8) && player1.contains(9)){
+            winer = 1
+        }
+        if(player2.contains(7)&& player2.contains(8) && player2.contains(9)){
+            winer = 2
+        }
+        //col 1
+        if(player1.contains(1)&& player1.contains(4) && player1.contains(7)){
+            winer = 1
+        }
+        if(player2.contains(1)&& player2.contains(4) && player2.contains(7)){
+            winer = 2
+        }
+        //col 2
+        if(player1.contains(2)&& player1.contains(5) && player1.contains(8)){
+            winer = 1
+        }
+        if(player2.contains(2)&& player2.contains(5) && player2.contains(8)){
+            winer = 2
+        }
+        //col 3
+        if(player1.contains(3)&& player1.contains(6) && player1.contains(9)){
+            winer = 1
+        }
+        if(player2.contains(3)&& player2.contains(6) && player2.contains(9)){
+            winer = 2
+        }
+
+        if ( winer == 1){
+            Toast.makeText(this, "Player 1 win the game.", Toast.LENGTH_LONG).show()
+        }else if (winer == 2){
+            Toast.makeText(this, "Player 2 win the game.", Toast.LENGTH_LONG).show()
+        }
     }
 }
